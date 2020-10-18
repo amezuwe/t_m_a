@@ -7,8 +7,10 @@
             <p>published: {{ post.published_date }}</p>
         </div>
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr|slice:":200" }}</p>
-        <a href="{% url 'post_detail' post.pk  %}" class="btn btn-primary">Read More &rarr;</a>
+        <p>{{ post.text|linebreaksbr|slice:":200" }}...</p>
+        <a href="{% url 'post_detail' pk=post.pk %}#comment-section">Comments: {{ post.approved_comments.count }}</a>
     </div>
 {% endfor %}
 {% endblock %}
+
+
